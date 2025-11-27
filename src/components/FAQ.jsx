@@ -1,0 +1,63 @@
+import React, { useState } from "react";
+
+const faqs = [
+  {
+    question: "Where will the wedding take place?",
+    answer: "The ceremony and reception will be at Rosewood Gardens, Lagos. Directions will be provided upon RSVP.",
+  },
+  {
+    question: "What is the dress code?",
+    answer: "We encourage semi-formal attire with a touch of gold if you wish!",
+  },
+  {
+    question: "Is there parking available?",
+    answer: "Yes, the venue has ample parking space for guests.",
+  },
+  {
+    question: "Can I bring a plus one?",
+    answer: "Please indicate in your RSVP if you will be bringing a guest.",
+  },
+  {
+    question: "Are children allowed?",
+    answer: "We love little ones, but the event is primarily adult-focused.",
+  },
+];
+
+const FAQ = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleIndex = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section className="py-24 px-6 bg-gradient-to-b from-yellow-100 via-yellow-50 to-white text-center">
+      {/* Section Header with divider lines */}
+      <div className="flex items-center justify-center mb-10">
+        <span className="w-16 h-[2px] bg-[#f1b42f]"></span>
+        <h2 className="mx-4 text-4xl font-bold text-[#f1b42f]">FAQs</h2>
+        <span className="w-16 h-[2px] bg-[#f1b42f]"></span>
+      </div>
+
+      <div className="max-w-4xl mx-auto text-left space-y-4">
+        {faqs.map((faq, index) => (
+          <div
+            key={index}
+            className="border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition cursor-pointer"
+            onClick={() => toggleIndex(index)}
+          >
+            <h3 className="text-lg font-semibold text-gray-800 flex justify-between items-center">
+              {faq.question}
+              <span className="text-[#f1b42f] font-bold">{openIndex === index ? "-" : "+"}</span>
+            </h3>
+            {openIndex === index && (
+              <p className="mt-2 text-gray-700">{faq.answer}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default FAQ;

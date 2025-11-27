@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+/* ----------------------------------------- */
+
+/* FLOWER DRIFT ANIMATIONS */
+
+@keyframes flowerDrift1 {
+  0% {
+    transform: translate(-10vw, 0vh) rotate(0deg) scale(0.9);
+    opacity: 0.25;
+  }
+  30% {
+    transform: translate(20vw, -5vh) rotate(8deg) scale(1);
+    opacity: 0.4;
+  }
+  60% {
+    transform: translate(50vw, 3vh) rotate(-6deg) scale(1.05);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(110vw, -2vh) rotate(4deg) scale(0.95);
+    opacity: 0.25;
+  }
+}
+
+@keyframes flowerDrift2 {
+  0% {
+    transform: translate(-12vw, 8vh) rotate(0deg) scale(1);
+    opacity: 0.2;
+  }
+  35% {
+    transform: translate(25vw, -10vh) rotate(-10deg) scale(1.1);
+    opacity: 0.35;
+  }
+  70% {
+    transform: translate(60vw, 5vh) rotate(6deg) scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(120vw, -8vh) rotate(-4deg) scale(0.95);
+    opacity: 0.2;
+  }
+}
+
+@keyframes flowerDrift3 {
+  0% {
+    transform: translate(-8vw, -5vh) rotate(0deg) scale(0.85);
+    opacity: 0.18;
+  }
+  40% {
+    transform: translate(30vw, 10vh) rotate(12deg) scale(1);
+    opacity: 0.32;
+  }
+  80% {
+    transform: translate(70vw, -3vh) rotate(-8deg) scale(1.08);
+    opacity: 0.28;
+  }
+  100% {
+    transform: translate(115vw, 5vh) rotate(5deg) scale(0.9);
+    opacity: 0.18;
+  }
+}
+
+/* Animation utility classes */
+.float-drift-1 {
+  animation: flowerDrift1 22s ease-in-out infinite;
+}
+
+.float-drift-2 {
+  animation: flowerDrift2 28s ease-in-out infinite;
+}
+
+.float-drift-3 {
+  animation: flowerDrift3 18s ease-in-out infinite;
+}
+
+
+/* ----------------------------------------- */
+
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-raleway {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+
