@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ShareButton from "../ShareButton";
 
 const HeaderPage = () => {
   const [open, setOpen] = useState(false);
@@ -33,6 +34,8 @@ const HeaderPage = () => {
           <Link to="/gallery" className="hover:text-[#f1b42f] transition">
             GALLERY
           </Link>
+          
+          <shareButton />
         </nav>
 
         {/* Confirm Button */}
@@ -76,6 +79,9 @@ const HeaderPage = () => {
           >
             SEND GIFT
           </Link>
+
+          <ShareButton />
+          
         </div>
       )}
     </header>

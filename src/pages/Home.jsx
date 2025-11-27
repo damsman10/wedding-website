@@ -10,7 +10,7 @@ import Header from "../components/Sticky/Header"
 
 const Home = () => {
   return (
-    <div id="home">
+    <div id="home" className="overflow-hidden">
       <Header />
       <Hero />
       <OurStory />

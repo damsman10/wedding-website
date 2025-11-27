@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ShareButton from "../ShareButton";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -64,6 +65,9 @@ const Header = () => {
           >
             SEND GIFT
           </a>
+
+          <ShareButton />
+          
         </div>
       )}
     </header>
