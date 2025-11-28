@@ -57,7 +57,7 @@ const GiftsNaira = () => {
 
     {/* SWITCH TO EURO PAGE */}
 
-    <div className="mt-10">
+    <div className="mt-10 sm:block hidden">
       <Link
         to="/gifts/euro"
         className="text-[#b3871f] text-lg font-semibold hover:underline inline-flex items-center gap-2"
@@ -68,7 +68,7 @@ const GiftsNaira = () => {
     </div>
 
       {/* SWITCH TO POUNDS PAGE */}
-      <div className="mt-3">
+      <div className="mt-3 sm:block hidden">
       <Link
         to="/gifts/pounds"
         className="text-[#b3871f] text-lg font-semibold hover:underline inline-flex items-center gap-2"

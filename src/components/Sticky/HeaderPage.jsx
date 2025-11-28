@@ -64,7 +64,7 @@ const HeaderPage = () => {
             OUR STORY
           </Link>
           <Link to="/#party" className="block hover:text-[#f1b42f] transition">
-            BRIDESMAIDS & GROOMSMEN
+            MEET THE PARTY
           </Link>
           <Link to="/#gifts" className="block hover:text-[#f1b42f] transition">
             GIFT

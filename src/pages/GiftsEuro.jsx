@@ -49,7 +49,7 @@ const GiftsEuro = () => {
       </div>
 
       {/* Link back to Naira page */}
-      <div className="mt-10">
+      <div className="mt-10 sm:block hidden">
         <Link
           to="/gifts/naira"
           className="text-[#b3871f] text-lg font-semibold hover:underline inline-flex items-center gap-2"

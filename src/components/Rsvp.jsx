@@ -1,24 +1,58 @@
 import React, { useState } from "react";
-// import rsvpwall from "../assets/rsvpwall.jpg";
 
 const Rsvp = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
   const [response, setResponse] = useState("");
+  const [guests, setGuests] = useState("");
 
-  const handleSubmit = (e) => {
+  const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!firstName || !lastName || !response) {
-      alert("Please fill in all fields.");
-    } else {
-      alert(`RSVP Submitted!\nName: ${firstName} ${lastName}\nResponse: ${response}`);
+
+    if (!fullName || !email || !response) return;
+    if (response === "Joyfully Accept" && !guests) return;
+
+    const payload = {
+      fullName,
+      email,
+      response,
+      guests: response === "Joyfully Accept" ? guests : "0",
+    };
+
+    try {
+      setLoading(true);
+
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbz4_0VSIl61dmVLcCym_FxCnrskWmVibjP60GkrZqg4Z1NS4p0hbE5a-iya8mOvlE1X/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      setShowModal(true);
+
+      // Clear form
+      setFullName("");
+      setEmail("");
+      setResponse("");
+      setGuests("");
+    } catch (error) {
+      console.error("RSVP ERROR:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <section id="rsvp" className="py-24 px-6 text-center">
-      
-      {/* Section Title with dividers */}
+      {/* Title */}
       <div className="flex items-center justify-center mb-6">
         <span className="w-16 h-[2px] bg-[#f1b42f]"></span>
         <h2 className="mx-4 text-4xl font-bold text-[#f1b42f]">RSVP</h2>
@@ -26,50 +60,48 @@ const Rsvp = () => {
       </div>
 
       <p className="text-xl text-gray-700 mb-8">
-        Please let us know if you’ll be attending our wedding.
+        Please let us know if you'll be attending our wedding.
       </p>
 
-      {/* RSVP Form */}
+      {/* FORM */}
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
-        {/* First Name */}
+
+        {/* Full Name */}
         <div>
-          <label htmlFor="firstName" className="block text-lg text-gray-800 text-left mb-2">
-            First Name
+          <label className="block text-lg text-gray-800 text-left mb-2">
+            Full Name
           </label>
           <input
             type="text"
-            id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
             className="w-full p-3 border border-[#f1b42f] rounded-md text-lg focus:ring-2 focus:ring-[#f1b42f]"
-            placeholder="Your first name"
+            placeholder="Your full name"
             required
           />
         </div>
 
-        {/* Last Name */}
+        {/* Email */}
         <div>
-          <label htmlFor="lastName" className="block text-lg text-gray-800 text-left mb-2">
-            Last Name
+          <label className="block text-lg text-gray-800 text-left mb-2">
+            Email Address
           </label>
           <input
-            type="text"
-            id="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full p-3 border border-[#f1b42f] rounded-md text-lg focus:ring-2 focus:ring-[#f1b42f]"
-            placeholder="Your last name"
+            placeholder="Your email address"
             required
           />
         </div>
 
-        {/* Response Select */}
+        {/* Response */}
         <div>
-          <label htmlFor="response" className="block text-lg text-gray-800 text-left mb-2">
+          <label className="block text-lg text-gray-800 text-left mb-2">
             Will you attend?
           </label>
           <select
-            id="response"
             value={response}
             onChange={(e) => setResponse(e.target.value)}
             className="w-full p-3 border border-[#f1b42f] rounded-md text-lg focus:ring-2 focus:ring-[#f1b42f]"
@@ -81,14 +113,62 @@ const Rsvp = () => {
           </select>
         </div>
 
+        {/* Guests (conditional) */}
+        {response === "Joyfully Accept" && (
+          <div>
+            <label className="block text-lg text-gray-800 text-left mb-2">
+              Number of Attendees (including you)
+            </label>
+            <input
+              type="number"
+              min="1"
+              value={guests}
+              onChange={(e) => setGuests(e.target.value)}
+              className="w-full p-3 border border-[#f1b42f] rounded-md text-lg focus:ring-2 focus:ring-[#f1b42f]"
+              placeholder="e.g. 1, 2, 3"
+              required
+            />
+          </div>
+        )}
+
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-[#f1b42f] text-white py-3 rounded-full font-semibold mt-6 hover:brightness-110 transition"
+          disabled={loading}
+          className={`w-full py-3 rounded-full font-semibold mt-6 transition 
+            ${loading ? "bg-gray-400" : "bg-[#f1b42f] text-white hover:brightness-110"}`}
         >
-          Submit RSVP
+          {loading ? "Submitting..." : "Submit RSVP"}
         </button>
       </form>
+
+      {/* SUCCESS MODAL */}
+      {showModal && (
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center p-6 z-50"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="bg-white rounded-xl p-8 max-w-md w-full text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-2xl font-bold text-[#f1b42f] mb-4">
+              🎉 Thank You!
+            </h3>
+
+            <p className="text-gray-700 mb-6">
+              Your RSVP has been received.
+            </p>
+
+            <button
+              onClick={() => setShowModal(false)}
+              className="bg-[#f1b42f] text-white px-6 py-3 rounded-full font-semibold hover:brightness-110 transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
