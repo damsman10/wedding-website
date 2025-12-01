@@ -6,6 +6,7 @@ import Gallery from "../components/Gallery"
 import Party from "../components/Party"
 import Faq from "../components/FAQ"
 import Header from "../components/Sticky/Header"
+import Poem from "../components/Poem"
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <Header />
       <Hero />
       <OurStory />
+      <Poem />
       <Gallery />
       <Gifts />
       <Party />

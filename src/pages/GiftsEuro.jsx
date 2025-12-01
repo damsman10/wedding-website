@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 const GiftsEuro = () => {
   return (
     <section className="py-24 px-6 bg-white text-center">
+      <HeaderPage />
 
-      <HeaderPage />    
-      
       {/* Header with divider lines */}
       <div className="flex font-montserrat items-center justify-center mb-6">
         <span className="w-16 h-[2px] bg-[#f1b42f]"></span>
@@ -22,12 +21,14 @@ const GiftsEuro = () => {
         Thank you for choosing to be a blessing. 💛
       </p>
 
-      {/* EMBEDDED PAYPAL PAYMENT */}
+      {/* PayPal Button */}
       <div className="mb-16 flex justify-center">
-        <iframe
-          src="https://www.paypal.com/donate/buttons/example"  
-          className="w-full md:w-2/4 h-[750px] rounded-xl border"
-        ></iframe>
+        <button
+          onClick={() => window.open("https://www.paypal.com/pool/9kuMNfEmoY?sr=wccr", "_blank")}
+          className="px-6 py-3 bg-[#f1b42f] text-white rounded-full font-semibold hover:brightness-110 transition"
+        >
+          Contribute via PayPal
+        </button>
       </div>
 
       {/* EU BANK TRANSFER DETAILS */}
@@ -77,7 +78,6 @@ const GiftsEuro = () => {
           <span>→</span>
         </Link>
       </div>
-
     </section>
   );
 };
