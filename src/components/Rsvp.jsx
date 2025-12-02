@@ -89,21 +89,21 @@ const Rsvp = () => {
 
         {/* Email - NEW */}
         <div>
-  <label className="block text-lg text-gray-800 text-left mb-2">
-    Email Address
-  </label>
-  <input
-    type="email"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    className="w-full p-3 border border-[#f1b42f] rounded-md text-lg focus:ring-2 focus:ring-[#f1b42f]"
-    placeholder="yourname@example.com"
-    required
-  />
-  <p className="text-red-600 text-sm mt-1">
-    Double-check your email — the QR code will be sent here.
-  </p>
-</div>
+          <label className="block text-lg text-gray-800 text-left mb-2">
+            Email Address
+          </label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-3 border border-[#f1b42f] rounded-md text-lg focus:ring-2 focus:ring-[#f1b42f]"
+            placeholder="yourname@example.com"
+            required
+          />
+          <p className="text-red-600 text-sm mt-1">
+            Double-check your email — the QR code will be sent here.
+          </p>
+        </div>
 
 
         {/* WhatsApp Phone Number */}
