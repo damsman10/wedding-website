@@ -2,7 +2,8 @@ import React, { useState } from "react";
 
 const Rsvp = () => {
   const [fullName, setFullName] = useState("");
-  const [phone, setPhone] = useState(""); // updated
+  const [email, setEmail] = useState(""); // NEW
+  const [phone, setPhone] = useState("");
   const [response, setResponse] = useState("");
   const [guests, setGuests] = useState("");
 
@@ -12,12 +13,14 @@ const Rsvp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fullName || !phone || !response) return;
+    // validation
+    if (!fullName || !email || !phone || !response) return;
     if (response === "Joyfully Accept" && !guests) return;
 
     const payload = {
       fullName,
-      phone, // updated
+      email,      // NEW
+      phone,
       response,
       guests: response === "Joyfully Accept" ? guests : "0",
     };
@@ -26,7 +29,7 @@ const Rsvp = () => {
       setLoading(true);
 
       await fetch(
-        "https://script.google.com/macros/s/AKfycbx4CPhO179g69J0dZI1Kl9XFWbcAcEFfZfjS2_V9CsjFocQPdt8ZklJA7eTAqlG6mvr/exec",
+        "https://script.google.com/macros/s/AKfycby99Vf7SdvT2CybMn4aYg18KEEN7Qzl01Iz17IPEU2Hd57-1eA0_v70Qi7z0fsJbjT6/exec",
         {
           method: "POST",
           mode: "no-cors",
@@ -39,7 +42,8 @@ const Rsvp = () => {
 
       // Clear form
       setFullName("");
-      setPhone(""); // updated
+      setEmail(""); // NEW
+      setPhone("");
       setResponse("");
       setGuests("");
     } catch (error) {
@@ -55,7 +59,9 @@ const Rsvp = () => {
       {/* Title */}
       <div className="flex items-center justify-center mb-6">
         <span className="w-16 h-[2px] bg-[#f1b42f]"></span>
-        <h2 className="mx-4 text-4xl font-raleway font-bold text-[#b27c33]">RSVP</h2>
+        <h2 className="mx-4 text-4xl font-raleway font-bold text-[#b27c33]">
+          RSVP
+        </h2>
         <span className="w-16 h-[2px] bg-[#f1b42f]"></span>
       </div>
 
@@ -64,7 +70,7 @@ const Rsvp = () => {
       </p>
 
       {/* FORM */}
-      <form onSubmit={handleSubmit} className=" font-montserrat max-w-lg mx-auto space-y-6">
+      <form onSubmit={handleSubmit} className="font-montserrat max-w-lg mx-auto space-y-6">
 
         {/* Full Name */}
         <div>
@@ -77,6 +83,21 @@ const Rsvp = () => {
             onChange={(e) => setFullName(e.target.value)}
             className="w-full p-3 border border-[#f1b42f] rounded-md text-lg focus:ring-2 focus:ring-[#f1b42f]"
             placeholder="Your full name"
+            required
+          />
+        </div>
+
+        {/* Email - NEW */}
+        <div>
+          <label className="block text-lg text-gray-800 text-left mb-2">
+            Email Address
+          </label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-3 border border-[#f1b42f] rounded-md text-lg focus:ring-2 focus:ring-[#f1b42f]"
+            placeholder="yourname@example.com"
             required
           />
         </div>
