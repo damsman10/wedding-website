@@ -164,7 +164,7 @@ const Rsvp = () => {
             <h3 className="text-2xl font-bold text-[#f1b42f] mb-4">🎉 Thank You!</h3>
 
             <p className="text-gray-700 mb-6">
-              Your RSVP and Access Code has been received in your email. You will need this to gain entry to the event venue.
+              Your RSVP and Access Code has been sent to your email. You will need this to gain entry to the event venue.
             </p>
 
             <button

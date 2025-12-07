@@ -1,25 +1,25 @@
 import React from "react";
 
 // Example assets
-import bridesmaid1 from "../assets/woman.jpg";
-import bridesmaid2 from "../assets/woman.jpg";
-import groomsman1 from "../assets/man.jpeg";
-import groomsman2 from "../assets/man.jpeg";
-import planner from "../assets/woman.jpg"; // Event planner
-import officiant from "../assets/man.jpeg"; // Officiant
+// import bridesmaid1 from "../assets/woman.jpg";
+// import bridesmaid2 from "../assets/woman.jpg";
+// import groomsman1 from "../assets/man.jpeg";
+// import groomsman2 from "../assets/man.jpeg";
+// import planner from "../assets/woman.jpg"; // Event planner
+// import officiant from "../assets/man.jpeg"; // Officiant
 
 const Party = () => {
   const members = [
-    { name: "Alice", role: "Bridesmaid", img: bridesmaid1 },
-    { name: "Sophia", role: "Bridesmaid", img: bridesmaid2 },
-    { name: "David", role: "Groomsman", img: groomsman1 },
-    { name: "James", role: "Groomsman", img: groomsman2 },
-    { name: "Lara", role: "Event Planner", img: planner },
-    { name: "Rev. Michael", role: "Officiant", img: officiant },
+    // { name: "Alice", role: "Bridesmaid", img: bridesmaid1 },
+    // { name: "Sophia", role: "Bridesmaid", img: bridesmaid2 },
+    // { name: "David", role: "Groomsman", img: groomsman1 },
+    // { name: "James", role: "Groomsman", img: groomsman2 },
+    // { name: "Lara", role: "Event Planner", img: planner },
+    // { name: "Rev. Michael", role: "Officiant", img: officiant },
   ];
 
   return (
-    <section id="party" className="py-24 px-6 bg-gradient-to-r from-yellow-100 via-yellow-50 to-white text-center">
+    <section id="party" className="hidden py-24 px-6 bg-gradient-to-r from-yellow-100 via-yellow-50 to-white text-center">
       {/* Section Header */}
       <div className="flex items-center justify-center mb-10">
         <span className="w-16 h-[2px] bg-[#f1b42f]"></span>
