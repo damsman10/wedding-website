@@ -32,7 +32,7 @@ const OurStory = () => {
   };
 
   const groomStory = `
-    It all began on 23 May 2022 — the day I first saw her. We were meant to meet our boss for an introductory meeting at work (yes, we worked in the same organisation). 
+    It all began on 23 May 2022 - the day I first saw her. We were meant to meet our boss for an introductory meeting at work (yes, we worked in the same organisation). 
     
     I did not know it then, but that moment would change my life.
 
