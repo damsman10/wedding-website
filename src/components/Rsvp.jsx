@@ -100,7 +100,7 @@ const Rsvp = () => {
             required
           />
           <p className="text-red-600 text-sm mt-1">
-            Double-check your email — the QR code will be sent here.
+            Double-check your email - the QR code and Access Card will be sent to the address.
           </p>
         </div>
 
@@ -164,7 +164,7 @@ const Rsvp = () => {
             <h3 className="text-2xl font-bold text-[#f1b42f] mb-4">🎉 Thank You!</h3>
 
             <p className="text-gray-700 mb-6">
-              Your RSVP has been received.
+              Your RSVP and Access Code has been received in your email. You will need this to gain entry to the event venue.
             </p>
 
             <button
