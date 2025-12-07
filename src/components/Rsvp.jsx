@@ -2,10 +2,9 @@ import React, { useState } from "react";
 
 const Rsvp = () => {
   const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState(""); // NEW
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [response, setResponse] = useState("");
-  const [guests, setGuests] = useState("");
 
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -13,16 +12,15 @@ const Rsvp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // validation
+    // Validation
     if (!fullName || !email || !phone || !response) return;
-    if (response === "Joyfully Accept" && !guests) return;
 
     const payload = {
       fullName,
-      email,      // NEW
+      email,
       phone,
       response,
-      guests: response === "Joyfully Accept" ? guests : "0",
+      guests: "1", // ALWAYS 1 — because each attendee fills the form personally
     };
 
     try {
@@ -42,10 +40,9 @@ const Rsvp = () => {
 
       // Clear form
       setFullName("");
-      setEmail(""); // NEW
+      setEmail("");
       setPhone("");
       setResponse("");
-      setGuests("");
     } catch (error) {
       console.error("RSVP ERROR:", error);
       alert("Something went wrong. Please try again.");
@@ -70,8 +67,10 @@ const Rsvp = () => {
       </p>
 
       {/* FORM */}
-      <form onSubmit={handleSubmit} className="font-montserrat max-w-lg mx-auto space-y-6">
-
+      <form
+        onSubmit={handleSubmit}
+        className="font-montserrat max-w-lg mx-auto space-y-6"
+      >
         {/* Full Name */}
         <div>
           <label className="block text-lg text-gray-800 text-left mb-2">
@@ -87,7 +86,7 @@ const Rsvp = () => {
           />
         </div>
 
-        {/* Email - NEW */}
+        {/* Email */}
         <div>
           <label className="block text-lg text-gray-800 text-left mb-2">
             Email Address
@@ -105,8 +104,7 @@ const Rsvp = () => {
           </p>
         </div>
 
-
-        {/* WhatsApp Phone Number */}
+        {/* WhatsApp Number */}
         <div>
           <label className="block text-lg text-gray-800 text-left mb-2">
             WhatsApp Phone Number
@@ -138,30 +136,16 @@ const Rsvp = () => {
           </select>
         </div>
 
-        {/* Guests (conditional) */}
-        {response === "Joyfully Accept" && (
-          <div>
-            <label className="block text-lg text-gray-800 text-left mb-2">
-              Number of Attendees (including you)
-            </label>
-            <input
-              type="number"
-              min="1"
-              value={guests}
-              onChange={(e) => setGuests(e.target.value)}
-              className="w-full p-3 border border-[#f1b42f] rounded-md text-lg focus:ring-2 focus:ring-[#f1b42f]"
-              placeholder="e.g. 1, 2, 3"
-              required
-            />
-          </div>
-        )}
-
-        {/* Submit Button */}
+        {/* Submit */}
         <button
           type="submit"
           disabled={loading}
           className={`w-full py-3 rounded-full font-semibold mt-6 transition 
-            ${loading ? "bg-gray-400" : "bg-[#f1b42f] text-white hover:brightness-110"}`}
+            ${
+              loading
+                ? "bg-gray-400"
+                : "bg-[#f1b42f] text-white hover:brightness-110"
+            }`}
         >
           {loading ? "Submitting..." : "Submit RSVP"}
         </button>
@@ -177,9 +161,7 @@ const Rsvp = () => {
             className="bg-white rounded-xl p-8 max-w-md w-full text-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="text-2xl font-bold text-[#f1b42f] mb-4">
-              🎉 Thank You!
-            </h3>
+            <h3 className="text-2xl font-bold text-[#f1b42f] mb-4">🎉 Thank You!</h3>
 
             <p className="text-gray-700 mb-6">
               Your RSVP has been received.
