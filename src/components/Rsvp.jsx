@@ -100,7 +100,7 @@ const Rsvp = () => {
             required
           />
           <p className="text-red-600 text-sm mt-1">
-            Double-check your email - the QR code and Access Card will be sent to the address.
+            Please Double-check email - your QR code and Access Card will be sent to this address instantly.
           </p>
         </div>
 
