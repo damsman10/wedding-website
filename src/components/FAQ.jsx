@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Who can I contact if I have questions or need help finding the venue?",
     answer:
-      "For inquiries or assistance on the wedding day, you can reach out to Jesutofunmi Oguntoye at 08168965522."
+      "For inquiries or assistance on the wedding day, you can reach out to Jesutofunmi Oguntoye at  08168965322."
   },
   {
     question: "What time should guests arrive?",

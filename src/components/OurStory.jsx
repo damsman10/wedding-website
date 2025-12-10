@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Groom from "../assets/man.jpg";
-import Bride from "../assets/woman.jpg";
+import Bride from "../assets/woman1.jpeg";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
