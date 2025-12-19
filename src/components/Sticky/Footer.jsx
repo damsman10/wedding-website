@@ -59,7 +59,7 @@ const Footer = () => {
       <div className="mt-8 border-t border-white/40 pt-4 text-center text-sm">
         <p>&copy; {new Date().getFullYear()} #JourneyWithOJ2026</p>
         <p className="mt-2 pb-4 sm:pb-0">
-          Developed by <a href="https://syndeco-technologies.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline font-semibold">Syndeco Technologies</a>
+          Developed by <a href="https://syndeco-technologies.vercel.app/contact/" target="_blank" rel="noopener noreferrer" className="underline font-semibold">Syndeco Technologies</a>
         </p>
       </div>
     </footer>
