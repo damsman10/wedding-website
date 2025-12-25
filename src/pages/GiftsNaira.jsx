@@ -36,13 +36,13 @@ const GiftsNaira = () => {
         </h3>
 
         <p className="text-lg text-gray-800 mb-2">
-          <strong>Bank Name:</strong> Access Bank
+          <strong>Bank Name:</strong> First Bank of Nigeria 
         </p>
         <p className="text-lg text-gray-800 mb-2">
-          <strong>Account Name:</strong> John & Jane Wedding Gift
+          <strong>Account Name:</strong> OGUNTOYE OPEOLUWA J.
         </p>
         <p className="text-lg text-gray-800 mb-6">
-          <strong>Account Number:</strong> 0123456789
+          <strong>Account Number:</strong> 3099971141
         </p>
 
         <button

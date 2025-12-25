@@ -38,16 +38,16 @@ const GiftsEuro = () => {
         </h3>
 
         <p className="text-lg text-gray-800 mb-2">
-          <strong>Bank Name:</strong> Revolut Bank
+          <strong>Bank Name:</strong> Post Bank
         </p>
         <p className="text-lg text-gray-800 mb-2">
-          <strong>Account Name:</strong> John & Jane Wedding Gift
+          <strong>Account Name:</strong> OPEOLUWA OGUNTOYE
         </p>
         <p className="text-lg text-gray-800 mb-2">
-          <strong>IBAN:</strong> EU12 3456 7890 1234 5678 90
+          <strong>IBAN</strong> DE74 1001 0010 0806 6801 26
         </p>
         <p className="text-lg text-gray-800 mb-6">
-          <strong>BIC / SWIFT:</strong> REVOGB21
+          <strong>ACC No</strong> 368/7483654
         </p>
 
         <button
